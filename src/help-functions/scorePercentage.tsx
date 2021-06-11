@@ -1,12 +1,14 @@
-import {sumArray} from "./sumArray";
+import { sumArray } from "./sumArray";
 
-type percentageGroup = {
-    score:number
-}
+const scorePercentage = (
+  score: number[],
+  maxScore: number,
+  minScore: number
+) => {
+  return (
+    (100 * sumArray(score.map((scr) => scr - minScore))) /
+    (score.length * (maxScore - 1))
+  );
+};
 
-const scorePercentage = (group:percentageGroup[],maxScore:number,minScore:number) =>{
-    return 100*sumArray(group.map(grp=>grp.score-minScore))/(group.length*(maxScore-1));
-}
-
-
-export {scorePercentage}
+export { scorePercentage };

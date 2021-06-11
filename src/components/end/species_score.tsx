@@ -14,7 +14,7 @@ type speciesScoreProps = {
 const SpeciesScore = (props: speciesScore) => {
   const { genus, species, pt_name, old_score, to_sum, img_url } = props;
   return (
-    <div key={pt_name}>
+    <div >
       <h1>{pt_name}</h1>
       <h2>{`${genus} ${species}`}</h2>
       <p>{old_score + to_sum}</p>
@@ -29,7 +29,7 @@ const SpeciesScoreGroup = (props: speciesScoreProps) => {
     <div>
       {spp.map((species: speciesScore) => {
         return (
-          <div>
+          <div key={species.pt_name}>
             <SpeciesScore {...species}></SpeciesScore>
           </div>
         );

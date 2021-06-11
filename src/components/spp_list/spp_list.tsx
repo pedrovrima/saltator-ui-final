@@ -1,4 +1,4 @@
-import Species from "../types/species";
+import {Species} from "../../types";
 
 type speciesListProps = {
     spp:Species[]

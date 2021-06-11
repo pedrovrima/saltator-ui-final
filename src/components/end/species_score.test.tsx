@@ -1,4 +1,4 @@
-import SpeciesScoreGroup from "./progress";
+import SpeciesScoreGroup from "./species_score";
 import { render, screen } from "@testing-library/react";
 
 const spp = [

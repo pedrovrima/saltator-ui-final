@@ -1,19 +1,16 @@
 import { useState } from "react";
-import { scorePercentage } from "../help-functions/scorePercentage";
-import type Species from "../types/species";
+import { scorePercentage } from "../../help-functions/scorePercentage";
+import type { Deck, Species } from "../../types";
 import SpeciesList from "../spp_list/spp_list";
-type deckCardProps = {
-  id: number;
-  name: string;
-  spp: Species[];
-  active: boolean;
-};
 
-function DeckCard(props: deckCardProps) {
+const getScore = (spp: Species[]): number[] =>
+  spp.map((species: Species): number => species.score);
+
+function DeckCard(props: Deck) {
   const [showSpecies, setShowSpecies] = useState(false);
   const { id, name, spp, active } = props;
 
-  const percentage_complete = Math.round(scorePercentage(spp, 5, 1));
+  const percentage_complete = Math.round(scorePercentage(getScore(spp), 5, 1));
   return (
     <div>
       <h1>{name}</h1>
